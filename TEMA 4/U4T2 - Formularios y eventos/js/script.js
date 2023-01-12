@@ -1,0 +1,3 @@
+setTimeout(() => {
+    // Código a ejecutar después de que pase...
+}, 1000); // ... el número de milisegundos que aquí se especifique, en este caso, 1 segundo.

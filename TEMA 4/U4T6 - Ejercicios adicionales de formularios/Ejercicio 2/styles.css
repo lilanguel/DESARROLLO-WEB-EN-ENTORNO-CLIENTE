@@ -1,0 +1,20 @@
+table {
+    border: 1px solid grey;
+}
+
+td {
+    border: 1px solid grey;
+    background-color: rgb(233, 232, 232);
+    width: 600px;
+}
+
+#celdaBotones{
+    background-color: white;
+    text-align: center;
+    padding-top: 20px;
+}
+
+h4{
+    color: blue;
+    margin-top: 0px;
+}

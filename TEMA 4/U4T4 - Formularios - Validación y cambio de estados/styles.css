@@ -1,0 +1,17 @@
+*{
+    border-color: black;
+    color: black;
+}
+
+.error_input{
+    border-color: red;
+}
+
+.error_label{
+    color: red;
+}
+
+.correcto{
+    border-color: black;
+    color: black;
+}

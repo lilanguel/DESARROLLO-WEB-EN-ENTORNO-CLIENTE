@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Fredoka;
+    src: url(./FredokaOne-Regular.ttf);
+}
+
+*{
+    font-family: Fredoka;
+}
+
+td{
+    background-color: red;
+    border: 2px black solid;
+}
+
+#tablero{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

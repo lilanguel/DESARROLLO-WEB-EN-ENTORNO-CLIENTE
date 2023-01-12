@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form id="myForm">
+        <table>
+            <tr>
+                <td>
+                    <h4>1. ¿Cuántas rectas pasan por un punto?</h4>
+                    <input type="radio" id="respuesta1p1" name="pregunta1">
+                    <label for="respuesta1p1">A. Infinitas.</label><br>
+                    <input type="radio" id="respuesta2p1" name="pregunta1">
+                    <label for="respuesta2p1">B. Dos.</label><br>
+                    <input type="radio" id="respuesta3p1" name="pregunta1">
+                    <label for="respuesta3p1">C. Depende del tamaño del punto.</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>2. Por un punto del espacio, ¿cuántas rectas paralelas a una pueden trazarse?</h4>
+                    <input type="radio" id="respuesta1p2" name="pregunta2">
+                    <label for="respuesta1p2">A. Ninguna.</label><br>
+                    <input type="radio" id="respuesta2p2" name="pregunta2">
+                    <label for="respuesta2p2">B. Una.</label><br>
+                    <input type="radio" id="respuesta3p2" name="pregunta2">
+                    <label for="respuesta3p2">C. Infinitas.</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>3. Determine el resultado de la siguiente ecuación: 7x - 28 = 6x - 1</h4>
+                    <input type="radio" id="respuesta1p3" name="pregunta3">
+                    <label for="respuesta1p3">A. x=29.</label><br>
+                    <input type="radio" id="respuesta2p3" name="pregunta3">
+                    <label for="respuesta2p3">B. x=27.</label><br>
+                    <input type="radio" id="respuesta3p3" name="pregunta3">
+                    <label for="respuesta3p3">C. x=16.</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td id="celdaBotones">
+                    <input type="button" onclick="mostrarResultado()" value="Resultado del test"></input>
+                    <input type="button" onclick="resetear()" value="Reiniciar test"></input>
+                    <input type="button" onclick="mostrarRespuestasCorrectas()" value="Respuestas correctas"></input>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script src="ej2.js"></script>
+</body>
+
+</html>
