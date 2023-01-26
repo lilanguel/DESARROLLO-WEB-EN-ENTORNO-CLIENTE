@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hola mundo con AJAX mejorado</title>
+  <script>
+    let READY_STATE_COMPLETE = 4;
+    let HTTP_STATUS_OK = 200;
+    let peticion_http;
+
+    window.onload = carga_contenido;
+
+    function carga_contenido() {
+      if (window.XMLHttpRequest) {
+        peticion_http = new XMLHttpRequest();
+      } else {
+        alert("No tienes soporte para AJAX");
+        return;
+      }
+      document.getElementById("campo_url").value = window.location.pathname;
+      document.getElementById("boton_mostrar_contenido").addEventListener("click", html_textarea);
+    }
+
+    function muestra_contenido() {
+      if (peticion_http.readyState === READY_STATE_COMPLETE) {
+        if (peticion_http.status === HTTP_STATUS_OK) {
+          document.getElementById("texto_contenido").textContent = peticion_http.responseText;
+        }
+      }
+    }
+
+    function html_textarea() {
+      if (peticion_http) {
+        const URL = "http://localhost:8090/TEMA 7/U7T1 - Lector ficheros/01_AJAX-HolaMundoMejorado.html"
+        peticion_http.onreadystatechange = muestra_contenido;
+        peticion_http.open("GET", URL, true);
+        peticion_http.send();
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <input type="text" id="campo_url" size="75%">
+  <br>
+  <button type="button" id="boton_mostrar_contenido">Mostrar contenido</button>
+  <br>
+  <textarea id="texto_contenido" cols="100" rows="400"></textarea>
+</body>
+
+</html>
