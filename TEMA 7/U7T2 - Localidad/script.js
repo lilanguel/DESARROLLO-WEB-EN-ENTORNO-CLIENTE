@@ -17,7 +17,13 @@ function carga_contenido() {
 function procesar_peticion() {
     if (peticion_http.readyState === READY_STATE_COMPLETE) {
         if (peticion_http.status === HTTP_STATUS_OK) {
+
             document.getElementById("resultado").textContent = peticion_http.responseText;
+            if(document.getElementById("resultado").textContent=="SI"){
+                document.getElementById("resultado").className="fondoVerde"
+            }else{
+                document.getElementById("resultado").className="fondoRojo"
+            }
         }
     }
 }
@@ -26,7 +32,7 @@ function revisar_peticion() {
     if (peticion_http) {
         let localidad = document.getElementById("campo_localidad").value;
         peticion_http.onreadystatechange = procesar_peticion;
-        peticion_http.open(`GET", "C:/Users/Ángel Alberto/Documents/REPOSITORIOS/DESARROLLO-WEB-EN-ENTORNO-CLIENTE/TEMA 7/U7T2 - Localidad/localidad.php?localidad=${localidad}`,true);
+        peticion_http.open("GET", `http://localhost:8090/TEMA 7/U7T2 - Localidad/localidad.php?localidad=${localidad}`, true);
         peticion_http.send();
     }
 }
