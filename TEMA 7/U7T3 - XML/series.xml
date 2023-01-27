@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<series>
+    <Series>
+        <Serie>
+            <Titulo>Juego de Tronos</Titulo>
+            <Cadena>HBO</Cadena>
+            <Director>David Benioff</Director>
+            <Ano>2011</Ano>
+            <Terminada>Si</Terminada>
+        </Serie>
+        <Serie>
+            <Titulo>Breaking Bad</Titulo>
+            <Cadena>AMC</Cadena>
+            <Director>Vince Gilligan</Director>
+            <Ano>2008</Ano>
+            <Terminada>Si</Terminada>
+        </Serie>
+        <Serie>
+            <Titulo>El príncipe de Bel-Air</Titulo>
+            <Cadena>NBC</Cadena>
+            <Director>Benny Medina</Director>
+            <Ano>1990</Ano>
+            <Terminada>Si</Terminada>
+        </Serie>
+        <Serie>
+            <Titulo>Stranger Things</Titulo>
+            <Cadena>Netflix</Cadena>
+            <Director>Matt Duffer</Director>
+            <Ano>2016</Ano>
+            <Terminada>No</Terminada>
+        </Serie>
+    </Series>
+
+</series>
