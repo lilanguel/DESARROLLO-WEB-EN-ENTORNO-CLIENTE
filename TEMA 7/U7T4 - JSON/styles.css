@@ -1,0 +1,19 @@
+.rojo{
+    color: red;
+}
+
+.amarillo{
+    color: yellow;
+}
+
+.verde{
+    color: green;
+}
+
+.cursiva{
+    font-style: oblique;
+}
+
+.negrita{
+    font-weight: bold;
+}

@@ -1,0 +1,39 @@
+{
+    "Series": [{
+            "Serie": {
+                "Título": "Game of Thrones",
+                "Cadena": "HBO",
+                "Director": "David Benioff y D. B. Weiss",
+                "Año": 2011,
+                "Terminada": "Sí"
+            }
+        },
+        {
+            "Serie": {
+                "Título": "Breaking Bad",
+                "Cadena": "AMC",
+                "Director": "Vince GILLIGAN",
+                "Año": 2008,
+                "Terminada": "Sí"
+            }
+        },
+        {
+            "Serie": {
+                "Título": "El príncipe de Bel-Air",
+                "Cadena": "NBC",
+                "Director": "Benny Medina",
+                "Año": 1990,
+                "Terminada": "Sí"
+            }
+        },
+        {
+            "Serie": {
+                "Título": "Stranger Things",
+                "Cadena": "Netflix",
+                "Director": "Matt Duffer",
+                "Año": 2016,
+                "Terminada": "No"
+            }
+        }
+    ]
+}
