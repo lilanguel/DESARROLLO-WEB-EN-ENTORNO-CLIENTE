@@ -1,22 +1,76 @@
 let lista_usuarios = [];
+let usuario_generado;
+let READY_STATE_COMPLETE = 4;
+let HTTP_STATUS_OK = 200;
+let xhr;
 
 window.onload = () => {
     document.getElementById("generar_usuario").addEventListener('click', pedir_usuario);
+    document.getElementById("guardar_usuarios_http").addEventListener('click', guardar_usuarios_http);
+    document.getElementById("guardar_usuarios_fetch").addEventListener('click', guardar_usuarios_fetch);
 }
 
 function pedir_usuario() {
-    let xhr = new XMLHttpRequest();
+    xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let usuario = JSON.parse(xhr.responseText);
             console.log(JSON.parse(xhr.responseText));
             procesar_usuario(usuario.results[0]);
+        } else {
+            console.log(JSON.parse(xhr.responseText))
         }
     };
 
     xhr.open("GET", "https://randomuser.me/api/?nat=es", true);
     xhr.send();
+}
+
+function comprobar_estado() {
+    if (
+        this.readyState == READY_STATE_COMPLETE &&
+        this.status == HTTP_STATUS_OK
+    ) {
+        let respuesta = xhr.responseText;
+        let resultado = document.getElementById("resultado_post");
+        resultado.innerHTML = respuesta;
+    } else {
+        console.log(xhr.responseText);
+    }
+}
+
+function guardar_usuarios_http() {
+    xhr = new XMLHttpRequest();
+    xhr.open("POST", "save_users.php", true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    let body_string = JSON.stringify(lista_usuarios);
+
+    xhr.onreadystatechange = comprobar_estado;
+    xhr.send(body_string);
+}
+
+function guardar_usuarios_fetch() {
+    fetch("save_users.php", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(lista_usuarios),
+        })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then((data) => {
+            console.log(data)
+            let resultado = document.getElementById("resultado_post");
+            resultado.innerHTML = data.resultado;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }
 
 function procesar_usuario(usuario) {
@@ -49,7 +103,7 @@ function procesar_usuario(usuario) {
     boton_anadir_a_tabla.innerHTML = 'Add to table';
     boton_anadir_a_tabla.id = 'anadir_a_tabla';
 
-    let usuario_generado = {
+    usuario_generado = {
         "name": `${usuario.name.first} ${usuario.name.last}`,
         "phone": `${usuario.phone}`,
         "street": `${usuario.location.street.name}`,
@@ -57,12 +111,12 @@ function procesar_usuario(usuario) {
         "image": `${usuario.picture.medium}__`
     }
 
-    lista_usuarios.push(usuario_generado);
-
     document.getElementById("anadir_a_tabla").addEventListener('click', anadir_a_tabla);
 }
 
 function anadir_a_tabla() {
+    lista_usuarios.push(usuario_generado);
+
     console.log(lista_usuarios)
 
     crear_tabla();
