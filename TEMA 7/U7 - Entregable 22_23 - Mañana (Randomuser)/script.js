@@ -49,48 +49,75 @@ function procesar_usuario(usuario) {
     boton_anadir_a_tabla.innerHTML = 'Add to table';
     boton_anadir_a_tabla.id = 'anadir_a_tabla';
 
-    let usuario_generado={
-        "name":`${usuario.name.first} ${usuario.name.last}`,
-        "phone":`${usuario.phone}`,
-        "street":`${usuario.location.street.name}`,
-        "email":`${usuario.email}`,
+    let usuario_generado = {
+        "name": `${usuario.name.first} ${usuario.name.last}`,
+        "phone": `${usuario.phone}`,
+        "street": `${usuario.location.street.name}`,
+        "email": `${usuario.email}`,
         "image": `${usuario.picture.medium}__`
     }
 
-    lista_usuarios.pop(usuario_generado);
+    lista_usuarios.push(usuario_generado);
 
-    document.getElementById("anadir_a_tabla").addEventListener('click', anadir_a_tabla(lista_usuarios));
+    document.getElementById("anadir_a_tabla").addEventListener('click', anadir_a_tabla);
 }
 
-function anadir_a_tabla(lista_usuarios) {
+function anadir_a_tabla() {
+    console.log(lista_usuarios)
+
     crear_tabla();
-    
+    let tabla = document.getElementById("tabla_usuarios");
+
+    for (let i = 0; i < lista_usuarios.length; i++) {
+        let tr = document.createElement("tr");
+        tabla.appendChild(tr);
+
+        let td_imagen = document.createElement("td");
+        td_imagen.innerHTML = lista_usuarios[i].image;
+        tr.appendChild(td_imagen);
+
+        let td_nombre = document.createElement("td");
+        td_nombre.innerHTML = lista_usuarios[i].name;
+        tr.appendChild(td_nombre);
+
+        let td_direccion = document.createElement("td");
+        td_direccion.innerHTML = lista_usuarios[i].street;
+        tr.appendChild(td_direccion);
+
+        let td_telefono = document.createElement("td");
+        td_telefono.innerHTML = lista_usuarios[i].phone;
+        tr.appendChild(td_telefono);
+
+        let td_email = document.createElement("td");
+        td_email.innerHTML = lista_usuarios[i].email;
+        tr.appendChild(td_email);
+    }
 }
 
-function crear_tabla(){
+function crear_tabla() {
     let tabla = document.getElementById("tabla_usuarios");
-    tabla.innerHTML="";
+    tabla.innerHTML = "";
 
-    let tr=document.createElement("tr");
+    let tr = document.createElement("tr");
     tabla.appendChild(tr);
 
-    let th_imagen=document.createElement("th");
-    th_imagen.innerHTML="Foto";
+    let th_imagen = document.createElement("th");
+    th_imagen.innerHTML = "Foto";
     tr.appendChild(th_imagen);
 
-    let th_nombre=document.createElement("th");
-    th_nombre.innerHTML="Nombre";
+    let th_nombre = document.createElement("th");
+    th_nombre.innerHTML = "Nombre";
     tr.appendChild(th_nombre);
 
-    let th_direccion=document.createElement("th");
-    th_direccion.innerHTML="Direccion";
+    let th_direccion = document.createElement("th");
+    th_direccion.innerHTML = "Direccion";
     tr.appendChild(th_direccion);
 
-    let th_telefono=document.createElement("th");
-    th_telefono.innerHTML="Telefono";
+    let th_telefono = document.createElement("th");
+    th_telefono.innerHTML = "Telefono";
     tr.appendChild(th_telefono);
 
-    let th_email=document.createElement("th");
-    th_email.innerHTML="Email";
+    let th_email = document.createElement("th");
+    th_email.innerHTML = "Email";
     tr.appendChild(th_email);
 }
